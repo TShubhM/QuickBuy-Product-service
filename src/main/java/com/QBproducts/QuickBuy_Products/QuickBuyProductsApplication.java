@@ -10,5 +10,5 @@ public class QuickBuyProductsApplication {
 		SpringApplication.run(QuickBuyProductsApplication.class, args);
 		System.out.println("Hello World");
 	}
-
+// URL for Swagger : http://localhost:8080/swagger-ui/index.html
 }

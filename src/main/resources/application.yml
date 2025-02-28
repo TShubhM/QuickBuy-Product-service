@@ -11,3 +11,7 @@ spring:
 
   application:
     name: QuickBuy-Products
+
+springdoc:
+  packagesToScan: com.QBproducts.QuickBuy_Products.controllers
+  pathsToMatch: /product/**
