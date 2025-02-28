@@ -3,6 +3,9 @@ package com.QBproducts.QuickBuy_Products.controllers;
 import com.QBproducts.QuickBuy_Products.DTOs.UpdateRequestDTO;
 import com.QBproducts.QuickBuy_Products.Entities.Product;
 import com.QBproducts.QuickBuy_Products.services.ProductService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,6 +21,12 @@ public class ProductController {
     private ProductService service;
 
     @PostMapping
+    @Operation(summary = "Create a new user", description = "This is for new user creation")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Success | OK"),
+            @ApiResponse(responseCode = "401", description = "Not Authorized !!"),
+            @ApiResponse(responseCode = "201", description = "New User created !!")
+    })
     public ResponseEntity<Product> saveProduct(@Valid @RequestBody Product product){
         return ResponseEntity.status(HttpStatus.CREATED).body(service.saveProduct(product));
     }
